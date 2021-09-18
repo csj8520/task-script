@@ -22,6 +22,8 @@ cron "1 0,11,21 * * *" script-path=jd_jump.js, tag=人人视频签到3
 只支持Node.js
 脚本兼容: Node.js
 cron 0 8-12/3 * * * task-rrtv.js
+
+new Env('人人视频签到');
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const got_1 = require("got");
