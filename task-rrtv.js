@@ -1,5 +1,7 @@
 /*
 人人视频签到脚本
+更新时间：2021-09-18
+活动入口：13
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ================QuantumultX==================
 [task_local]
