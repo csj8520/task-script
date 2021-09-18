@@ -1,8 +1,8 @@
-/*
-人人视频签到
-只支持Node.js
-脚本兼容: Node.js
-cron 0 8-12/3 * * * rrtv.js
+/**
+ * 人人视频签到
+ * 脚本兼容: Node.js
+ * cron 0 8-12/3 * * * task-rrtv.js
+ * new Env('人人视频签到')
  */
 
 import got, { OptionsOfJSONResponseBody } from 'got';
