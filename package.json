@@ -1,0 +1,28 @@
+{
+  "name": "task-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rrtv-signin.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "watch": "rimraf dist && tsc --watch",
+    "start:rrtv": "env-cmd esno ./src/rrtv.ts",
+    "start:dist:rrtv": "env-cmd node ./dist/rrtv.js"
+  },
+  "packageManager": "pnpm@6.15.1",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^11.8.2",
+    "tough-cookie": "^4.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.1",
+    "env-cmd": "^10.1.0",
+    "esno": "^0.9.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.3"
+  }
+}
