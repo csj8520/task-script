@@ -1,28 +1,7 @@
 /*
-人人视频签到脚本
-更新时间：2021-09-18
-活动入口：13
-脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
-================QuantumultX==================
-[task_local]
-#人人视频签到1
-1 0,11,21 * * * jd_jump.js, tag=人人视频签到2, enabled=true
-===================Loon==============
-[Script]
-cron "1 0,11,21 * * *" script-path=jd_jump.js, tag=人人视频签到3
-===============Surge===============
-[Script]
-人人视频签到4 = type=cron,cronexp="1 0,11,21 * * *",wake-system=1,timeout=3600,script-path=jd_jump.js
-====================================小火箭=============================
-人人视频签到5 = type=cron,script-path=jd_jump.js, cronexpr="1 0,11,21 * * *", timeout=3600, enable=true
-*/
-
-/*
 人人视频签到
-只支持Node.js
 脚本兼容: Node.js
-cron 0 8-12/3 * * * task-rrtv.js
-
+cron 0 8-12/3 * * *
 new Env('人人视频签到');
  */
 Object.defineProperty(exports, "__esModule", { value: true });
