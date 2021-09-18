@@ -1,4 +1,3 @@
-"use strict";
 /*
 人人视频签到
 只支持Node.js
