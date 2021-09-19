@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const got_1 = require("got");
+const tslib_1 = require("tslib");
+const got_1 = (0, tslib_1.__importDefault)(require("got"));
 async function importModule(...urls) {
     for (const it of urls) {
         let error = false;
