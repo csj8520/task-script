@@ -1,7 +1,7 @@
 /**
  * 人人视频签到
  * 脚本兼容: Node.js
- * cron 0 8-12/3 * * * task-rrtv.js
+ * cron 0 8-12/2 * * * task-rrtv.js
  * new Env('人人视频签到')
  */
 
