@@ -3,12 +3,10 @@
     "target": "esnext",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "removeComments": false,
     "strict": true,
     "jsx": "preserve",
-    "sourceMap": false,
     "resolveJsonModule": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "importHelpers": true,
     "rootDir": "./src",
     "outDir": "./dist"
