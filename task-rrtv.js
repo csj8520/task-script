@@ -140,6 +140,7 @@ const init = async ({ token, index }) => {
         }
         else if (canOpenBag) {
             const { body } = await got_1.default.post(api.giftbox.info, options);
+            console.log('body: ', body);
             body?.code === '0000'
                 ? log.log(`礼盒内容如下: ${body.data.map((it) => it.text1 + it.text2).join(',')}`)
                 : log.log(`获取礼盒内容失败: ${body?.msg}`);
@@ -196,10 +197,10 @@ const init = async ({ token, index }) => {
         const canWatch = maxExp > todayWatchScore + 1;
         if (canWatch) {
             await watchTv({ id });
-            await (0, utils_1.delay)(9000);
+            await (0, utils_1.delay)(15000);
         }
         else {
-            log.log('今日经验已超出最大值取消随机观影');
+            log.log('今日经验已达到最大值取消随机观影');
         }
     }
     else {
@@ -218,7 +219,7 @@ const init = async ({ token, index }) => {
 };
 (async () => {
     try {
-        log.log(`共有帐号 ${tokens.length} 个`);
+        log.log(`共有帐号 ${tokens.length} 个\n`);
         for (let index = 0; index < tokens.length; index++) {
             await init({ token: tokens[index], index });
             log.log('');
