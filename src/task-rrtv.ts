@@ -158,6 +158,7 @@ const init = async ({ token, index }: { token: string; index: number }) => {
       log.log('礼盒已打开过');
     } else if (canOpenBag) {
       const { body } = await got.post<ResType>(api.giftbox.info, options);
+      console.log('body: ', body);
       body?.code === '0000'
         ? log.log(`礼盒内容如下: ${body.data.map((it: any) => it.text1 + it.text2).join(',')}`)
         : log.log(`获取礼盒内容失败: ${body?.msg}`);
@@ -218,9 +219,9 @@ const init = async ({ token, index }: { token: string; index: number }) => {
 
     if (canWatch) {
       await watchTv({ id });
-      await delay(9000);
+      await delay(15000);
     } else {
-      log.log('今日经验已超出最大值取消随机观影');
+      log.log('今日经验已达到最大值取消随机观影');
     }
   } else {
     log.log(`获取经验记录失败: ${growthRecord?.msg}`);
@@ -239,7 +240,7 @@ const init = async ({ token, index }: { token: string; index: number }) => {
 
 (async () => {
   try {
-    log.log(`共有帐号 ${tokens.length} 个`);
+    log.log(`共有帐号 ${tokens.length} 个\n`);
     for (let index = 0; index < tokens.length; index++) {
       await init({ token: tokens[index], index });
       log.log('');
