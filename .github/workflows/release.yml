@@ -37,3 +37,4 @@ jobs:
         with:
           branch: script # The branch the action should deploy to.
           folder: dist # The folder the action should deploy.
+          commit-message: ${{ github.event.head_commit.message }}
