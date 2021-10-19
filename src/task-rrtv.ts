@@ -158,13 +158,12 @@ const init = async ({ token, index }: { token: string; index: number }) => {
       log.log('礼盒已打开过');
     } else if (canOpenBag) {
       const { body } = await got.post<ResType>(api.giftbox.info, options);
-      console.log('body: ', body);
       body?.code === '0000'
         ? log.log(`礼盒内容如下: ${body.data.map((it: any) => it.text1 + it.text2).join(',')}`)
         : log.log(`获取礼盒内容失败: ${body?.msg}`);
 
       const { body: openGifBox } = await got.post<ResType>(api.giftbox.open, options);
-      openGifBox?.code === '0000' ? log.log(`打开礼盒获得: ${body.data.name}`) : log.log(`打开礼盒失败: ${openGifBox?.msg}`);
+      openGifBox?.code === '0000' ? log.log(`打开礼盒获得: ${openGifBox.data.name}`) : log.log(`打开礼盒失败: ${openGifBox?.msg}`);
     } else {
       log.log('不满足打开礼盒条件');
     }
