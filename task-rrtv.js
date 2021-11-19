@@ -16,6 +16,10 @@ const uuid_1 = require("uuid");
 const got_1 = (0, tslib_1.__importDefault)(require("got"));
 const utils_1 = require("./utils");
 const log = new utils_1.Log();
+if (!process.env.RRTV_TOKEN) {
+    log.log('token 不存在');
+    process.exit(0);
+}
 const clientVersion = '5.8.1';
 const clientType = 'ios_rrtv_jsb';
 const tokens = process.env.RRTV_TOKEN.split('&');
