@@ -1,5 +1,5 @@
 import got from 'got';
-import vm from 'node:vm';
+import vm from 'vm';
 
 export default async function importModule(...urls: string[]) {
   for (const it of urls) {
