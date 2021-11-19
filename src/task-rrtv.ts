@@ -13,7 +13,13 @@ import path from 'path';
 import { v4 as uuid } from 'uuid';
 import got, { OptionsOfJSONResponseBody } from 'got';
 import { Log, random, delay, importModule, cdn } from './utils';
+
 const log = new Log();
+
+if (!process.env.RRTV_TOKEN) {
+  log.log('token 不存在');
+  process.exit(0);
+}
 
 const clientVersion = '5.8.1';
 const clientType = 'ios_rrtv_jsb';
