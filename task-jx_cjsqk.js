@@ -58,6 +58,7 @@ const init = async ({ cookie, index }) => {
         log.log('周日自动领取会员专享券');
         log.log('');
         // .slice(1, 3)
+        await (0, utils_1.delay)(1000);
         for (const quan of userRights.couponLong) {
             if (quan.status === '1')
                 continue;
@@ -65,7 +66,8 @@ const init = async ({ cookie, index }) => {
             const url = `https://m.jingxi.com/ppvip/ppvip_rights/GetVIPCoupon?token=${quan.token}&couponType=2&_stk=_t%2CcouponType%2Ctoken&sceneval=2`;
             const quanStatus = await got_1.default.get(url, options).json();
             DEBUG && console.log('quanStatus: ', quanStatus);
-            log.log(`正在领取：${quan.couponText}，状态：${quanStatus.successSubTitle}`);
+            log.log(`正在领取：${quan.couponText}，状态：${quanStatus.successSubTitle || quanStatus.msg}`);
+            await (0, utils_1.delay)(1000);
         }
         userRights = await got_1.default.get('https://m.jingxi.com/ppvip/ppvip_rights/QueryUserRights?sceneval=2', options).json();
         DEBUG && console.log('userRights: ', JSON.stringify(userRights));
