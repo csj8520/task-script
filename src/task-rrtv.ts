@@ -25,6 +25,7 @@ const clientVersion = '5.8.1';
 const clientType = 'ios_rrtv_jsb';
 const tokens = process.env.RRTV_TOKEN!.split('&');
 const deviceId = uuid();
+const aliId = uuid();
 
 const watchDuration = (process.env.RRTV_WATCH_DURATION || '60-70').split('-');
 const watchDurationMin = Number(watchDuration[0]);
@@ -85,7 +86,8 @@ const init = async ({ token, index }: { token: string; index: number }) => {
       token,
       clientVersion,
       clientType,
-      deviceId
+      deviceId,
+      aliId
     },
     responseType: 'json',
     timeout: 60 * 1000
