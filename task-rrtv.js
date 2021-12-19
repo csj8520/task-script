@@ -24,7 +24,6 @@ const clientVersion = '5.8.1';
 const clientType = 'ios_rrtv_jsb';
 const tokens = process.env.RRTV_TOKEN.split('&');
 const deviceId = (0, uuid_1.v4)();
-const aliId = (0, uuid_1.v4)();
 const watchDuration = (process.env.RRTV_WATCH_DURATION || '60-70').split('-');
 const watchDurationMin = Number(watchDuration[0]);
 const watchDurationMax = Number(watchDuration[1]);
@@ -76,7 +75,7 @@ const init = async ({ token, index }) => {
             clientVersion,
             clientType,
             deviceId,
-            aliId
+            aliId: token // 不可随机，会导致token失效
         },
         responseType: 'json',
         timeout: 60 * 1000
