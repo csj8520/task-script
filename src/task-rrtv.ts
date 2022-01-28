@@ -15,6 +15,7 @@ import got, { OptionsOfJSONResponseBody } from 'got';
 import { Log, random, delay, importModule, cdn } from './utils';
 
 const log = new Log();
+const DEBUG = process.env.DEBUG === 'true';
 
 if (!process.env.RRTV_TOKEN) {
   log.log('token 不存在');
@@ -60,6 +61,13 @@ const api = {
   giftbox: {
     info: 'https://api.rr.tv/sign/getAllBagItemMaterial',
     open: 'https://api.rr.tv/sign/openBag'
+  },
+  // 成就
+  mission: {
+    // 任务列表
+    list: 'https://api.rr.tv/v3plus/mission/myMissionList',
+    join: 'https://api.rr.tv/v3plus/mission/joinMission',
+    click: 'https://api.rr.tv/v3plus/mission/initMyMissionClick'
   },
   // 成就->每日宝箱
   dailybox: {
@@ -197,6 +205,21 @@ const init = async ({ token, index }: { token: string; index: number }) => {
 
   log.log('');
   await delay(1000);
+
+  const { body: missionList } = await got.post<ResType>(api.mission.list, options);
+  if (missionList?.code === '0000') {
+    log.log(missionList.data.myMissionList.length ? '开始处理成就任务' : '暂无成就任务');
+    log.log('');
+    for (let it of missionList.data.myMissionList) {
+      log.log(`${it.title} 成就 +${it.award} 经验 +${it.growth}`);
+      const { body: joinInfo } = await got.post<ResType>(api.mission.join, { ...options, body: `missionId=${it.missionId}` });
+      log.log(`领取任务: ${joinInfo?.code === '0000' ? '成功' : '失败'}`);
+      if (DEBUG && joinInfo?.code !== '0000') log.log(joinInfo);
+      const { body: clickInfo } = await got.post<ResType>(api.mission.click, { ...options, body: `missionId=${it.missionId}&platform=ios` });
+      log.log(`完成任务: ${clickInfo?.code === '0000' ? '成功' : '失败'}`);
+      if (DEBUG && clickInfo?.code !== '0000') log.log(clickInfo);
+    }
+  }
 
   const { body: myBag } = await got.post<ResType>(api.mybag.info, options);
   if (myBag?.code === '0000') {
