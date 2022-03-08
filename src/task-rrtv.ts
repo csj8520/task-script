@@ -137,11 +137,14 @@ const init = async ({ token, index }: { token: string; index: number }) => {
 
   const { body: userProfile } = await got.post<ResType>(api.user.info, options);
   if (userProfile?.code !== '0000') return log.log(`获取帐号 [${index + 1}] 信息失败: ${userProfile?.msg}`);
-  const { nickName, level, vipLevel, hasSignIn, isClock, id } = userProfile.data.user;
+  const { nickName, level, vipLevel, hasSignIn, isClock, id, medalList } = userProfile.data.user;
+
+  const greatLord = medalList.find((it: any) => it.name === '大魔王');
 
   log.log(`开始处理账号 [${index + 1}] ${nickName}\n`);
 
   log.log(`帐号: ${nickName}, 等级: ${level}, VIP等级: ${vipLevel}`);
+  greatLord && log.log(`大魔王有效期至: ${greatLord.endTime}`);
 
   if (hasSignIn) {
     log.log('今日已签到过');
