@@ -191,6 +191,10 @@ const init = async ({ token, index }) => {
         log.log('');
         for (let it of missionList.data.myMissionList) {
             log.log(`${it.title} 成就 +${it.award} 经验 +${it.growth}`);
+            if (it.title.includes('会员')) {
+                log.log('会员任务暂时跳过');
+                continue;
+            }
             const { body: joinInfo } = await got_1.default.post(api.mission.join, { ...options, body: `missionId=${it.missionId}` });
             log.log(`领取任务: ${joinInfo?.code === '0000' ? '成功' : '失败'}`);
             if (DEBUG && joinInfo?.code !== '0000')
