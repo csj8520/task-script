@@ -39,49 +39,49 @@ interface ResType<T = any> {
 }
 
 const api = {
-  host: 'https://api.rr.tv/',
+  host: 'https://api.qwapp.top/',
   user: {
-    info: 'https://api.rr.tv/user/profile'
+    info: 'https://api.qwapp.top/user/profile'
   },
   level: {
-    info: 'https://api.rr.tv/user/level/me',
-    record: 'https://api.rr.tv/user/getGrowthRecord'
+    info: 'https://api.qwapp.top/user/level/me',
+    record: 'https://api.qwapp.top/user/getGrowthRecord'
   },
   // 签到
   daily: {
     // 本周签到信息
-    info: 'https://api.rr.tv/sign/getInfo',
-    daily: 'https://api.rr.tv/sign/sign',
+    info: 'https://api.qwapp.top/sign/getInfo',
+    daily: 'https://api.qwapp.top/sign/sign',
     // vip 签到
-    vip: 'https://api.rr.tv/vip/experience/clock'
+    vip: 'https://api.qwapp.top/vip/experience/clock'
     // 未知
-    // welfare: 'https://api.rr.tv/dailyWelfare/getWelfare'
+    // welfare: 'https://api.qwapp.top/dailyWelfare/getWelfare'
   },
   // 签到->礼盒
   giftbox: {
-    info: 'https://api.rr.tv/sign/getAllBagItemMaterial',
-    open: 'https://api.rr.tv/sign/openBag'
+    info: 'https://api.qwapp.top/sign/getAllBagItemMaterial',
+    open: 'https://api.qwapp.top/sign/openBag'
   },
   // 成就
   mission: {
     // 任务列表
-    list: 'https://api.rr.tv/v3plus/mission/myMissionList',
-    join: 'https://api.rr.tv/v3plus/mission/joinMission',
-    click: 'https://api.rr.tv/v3plus/mission/initMyMissionClick'
+    list: 'https://api.qwapp.top/v3plus/mission/myMissionList',
+    join: 'https://api.qwapp.top/v3plus/mission/joinMission',
+    click: 'https://api.qwapp.top/v3plus/mission/initMyMissionClick'
   },
   // 成就->每日宝箱
   dailybox: {
-    info: 'https://api.rr.tv/v3plus/taskCenter/index',
-    open: 'https://api.rr.tv/v3plus/taskCenter/openBox'
+    info: 'https://api.qwapp.top/v3plus/taskCenter/index',
+    open: 'https://api.qwapp.top/v3plus/taskCenter/openBox'
   },
   // 我的背包
   mybag: {
-    info: 'https://api.rr.tv/v3plus/taskCenter/myBag'
+    info: 'https://api.qwapp.top/v3plus/taskCenter/myBag'
   },
   watchtv: {
-    videoTopList: 'https://api.rr.tv/v3plus/season/topList',
-    videoDetail: 'https://api.rr.tv/drama/app/get_combined_drama_detail',
-    watch: 'https://api.rr.tv/constant/growthCallback'
+    videoTopList: 'https://api.qwapp.top/v3plus/season/topList',
+    videoDetail: 'https://api.qwapp.top/drama/app/get_combined_drama_detail',
+    watch: 'https://api.qwapp.top/constant/growthCallback'
   }
 };
 
