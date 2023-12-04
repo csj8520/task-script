@@ -21,7 +21,7 @@ interface YsfAuthData {
   Cookie: string;
 }
 
-if (!process.env.RRTV_TOKEN) {
+if (!process.env.YSF_AUTH_DATAS) {
   log.log('YSF_AUTH_DATAS 不存在');
   process.exit(0);
 }
