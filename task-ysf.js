@@ -15,7 +15,7 @@ const got_1 = (0, tslib_1.__importDefault)(require("got"));
 const path_1 = (0, tslib_1.__importDefault)(require("path"));
 const utils_1 = require("./utils");
 const log = new utils_1.Log();
-if (!process.env.RRTV_TOKEN) {
+if (!process.env.YSF_AUTH_DATAS) {
     log.log('YSF_AUTH_DATAS 不存在');
     process.exit(0);
 }
