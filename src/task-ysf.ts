@@ -1,7 +1,7 @@
 /**
  * 云闪付
  * 脚本兼容: Node.js
- * cron 10 8/22 * * * task-ysf.js
+ * cron 10 8,22 * * * task-ysf.js
  * new Env('云闪付')
  *
  * 环境变量
