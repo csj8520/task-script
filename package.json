@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "watch": "rimraf dist && tsc --watch",
-    "start:jx_cjsqk": "env-cmd esno ./src/rm.task-jx_cjsqk.ts",
+    "start:jx_cjsqk": "env-cmd esno ./src/task.rm-jx_cjsqk.ts",
     "start:rrtv": "env-cmd esno ./src/task-rrtv.ts",
     "start:ysf": "env-cmd esno ./src/task-ysf.ts",
     "start:dist:rrtv": "env-cmd node ./dist/task-rrtv.js"
