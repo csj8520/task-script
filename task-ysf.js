@@ -29,10 +29,10 @@ const ua = `Mozilla/5.0 (iPhone; CPU iPhone OS 17_1_2 like Mac OS X) AppleWebKit
             .post('https://youhui.95516.com/newsign/api/daily_sign_in', { headers: { Authorization: it.Authorization, 'User-Agent': ua } })
             .json();
         if ('signedIn' in signIn) {
-            log.log(`账号[${it.usrId}]  今天是第${signIn.signInDays.current.days}天签到 今日已签到成功,目前已连续签到${signIn.signInDays.days}天🎉`);
+            log.log(`今天是第${signIn.signInDays.current.days}天签到，今日已签到成功，目前已连续签到${signIn.signInDays.days}天🎉`);
         }
         else {
-            log.log(`账号[${it.usrId}]  签到: 失败 ❌ 了呢`);
+            log.log(`签到: 失败 ❌ 了呢`);
             console.log(signIn);
         }
         const getPointOnce = await got_1.default
@@ -42,10 +42,10 @@ const ua = `Mozilla/5.0 (iPhone; CPU iPhone OS 17_1_2 like Mac OS X) AppleWebKit
         })
             .json();
         if (getPointOnce.respCd === '00') {
-            log.log(`账号[${it.usrId}]  成功领取积分: ${getPointOnce.data.allPoint}`);
+            log.log(`成功领取积分：${getPointOnce.data.allPoint}🎉`);
         }
         else {
-            log.log(`账号[${it.usrId}]  领取积分: 失败 ❌ 了呢`);
+            log.log(`领取积分：失败 ❌ 了呢`);
             console.log(getPointOnce);
         }
     }
